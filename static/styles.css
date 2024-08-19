@@ -1,0 +1,245 @@
+/* vim: et sw=4 ts=4
+ */
+
+@font-face {
+    font-family: handwriting;
+    src: url("/static/fonts/GreyQo-Regular.ttf");
+}
+@font-face {
+    font-family: roboto;
+    src: url("/static/fonts/roboto/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: robotoi;
+    src: url("static/fonts/roboto/Roboto-ThinItalic.ttf");
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-family: handwriting;
+    font-weight: 400;
+    font-size: 4em;
+}
+h2 {
+    text-align: center;
+    font-family: handwriting;
+    font-weight: 400;
+    font-size: 3em;
+    display: inline;
+}
+
+/* Navigation */
+.navigate-chapter {
+    text-align: center;
+    font-family: handwriting;
+    font-weight: 400;
+    font-size: 3em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    display: inline;
+    text-decoration: none;
+}
+.navigate-to-chapters {
+    text-align: center;
+    font-family: handwriting;
+    font-weight: 400;
+    font-size: 2.5em;
+    margin-left: 1.3em;
+    margin-right: 1.3em;
+    display: inline;
+    text-decoration: none;
+    color: black;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+}
+.nav-container-r {
+    display: flex;
+    justify-content: flex-end;
+}
+.navigate-to-front-page {
+    text-align: center;
+    font-family: handwriting;
+    font-weight: 400;
+    font-size: 2.5em;
+    margin-left: 1.3em;
+    margin-right: 1.3em;
+    display: inline;
+    text-decoration: none;
+    color: black;
+}
+
+/* Container and rim around content */
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    min-width: 500px;
+    width:80%;
+}
+
+#rim {
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 3px #555;
+}
+
+#books {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+}
+
+@media screen and (max-width: 1100px) {
+    #books {
+        grid-template-columns: repeat(2, 47%);
+    }
+}
+@media screen and (max-width: 700px) {
+    #books {
+        grid-template-columns: 100%;
+    }
+}
+
+/* Books on front page. */
+.book {
+    padding: 1rem;
+    margin: 1rem;
+    background: #555;
+    font-size: 24px;
+    border-radius: 0.5rem;
+    text-decoration: none;
+}
+.book:hover {
+    padding: 1.5rem;
+    margin: 0.5rem;
+    font-weight: 500;
+}
+
+/* Chapter selection comes after selecting a book. */
+#chapter-nums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.num {
+    padding: 1rem;
+    margin: 1rem;
+    background: #555;
+    font-size: 34px;
+    border-radius: 0.5rem;
+    width: 90px;
+    font-family: handwriting;
+    text-align: center;
+    color: #ccccff;
+}
+.num:hover {
+    border: 0.5rem solid gold;
+    margin: 0.5rem;
+}
+
+/* Show chapter verses page */
+#chapter-container {
+    margin: 1.1rem 2.2rem;
+    text-align: justify;
+}
+.verse {
+    font-family: roboto;
+    font-size: 26px;
+    padding: 0.2rem;
+    padding-top: 0.5rem;
+    line-height: 1.3em;
+    margin-left: 0.8rem;
+    display: inline;
+    text-justify: inter-character;
+}
+.verse:hover {
+    color: #383;
+}
+.verse span {
+    font-family: roboto;
+    font-style: italic;
+    font-size: 12px;
+    margin-right: 0.5rem;
+}
+
+/* About link */
+#about {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+#about a {
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: lighter;
+    color: black;
+    margin-left: 1rem;
+}
+
+/* About page */
+#rim p {
+    font-family: roboto;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+#rim pre {
+    margin-left: 2.5em;
+}
+#rim li {
+    list-style: none;
+}
+#rim li ul a {
+    font-family: roboto;
+}
+#rim li ul em {
+    margin-left: 0.5em;
+}
+
+/* Search box */
+#search-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+#search-form>input[name=search] {
+    padding: 0.5em;
+    border-top-left-radius: 0.4em;
+    border-bottom-left-radius: 0.4em;
+    border: 1px solid black;
+    width: 500px;
+    font-family: Roboto;
+    font-size: 18px;
+}
+#search-form>input[type=submit] {
+    padding: 0.5em;
+    border-top-right-radius: 0.4em;
+    border-bottom-right-radius: 0.4em;
+    border: 1px solid black;
+    width: 120px;
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+/* Search results */
+.search-result em ~ p {
+    margin-top: 0.3rem;
+    margin-bottom: 0.9rem;
+}
+.search-result>a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hilight search verse */
+.verse.hilight {
+    color: blue;
+}
+
+

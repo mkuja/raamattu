@@ -1,0 +1,23 @@
+<!-- vim: et ts=4 sw=4
+-->
+{% extends "base.jinja" %}
+           
+{% block title %}{{book_short_name}}{% endblock %}
+
+{% block body %}
+    <h1>{{ book_long_name }}</h1>
+    <div class="nav-container-r">
+        <div>
+            <a class="navigate-to-front-page" href="/">Etusivulle..</a>
+        </div>
+    </div>
+    <div id="rim">
+        <div id="chapter-nums">
+            {% for chapter_nr in 1..=num_chapters %}
+                <a class="num" href="/books/{{book_short_name}}/{{chapter_nr}}">{{ chapter_nr }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

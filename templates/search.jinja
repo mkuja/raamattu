@@ -1,0 +1,19 @@
+<!-- vim: et ts=4 sw=4
+-->
+{% extends "base.jinja" %}
+           
+{% block title %}Hakutulokset{% endblock %}
+
+{% block body %}
+    <h1>Hakutulokset</h1>
+    <div id="rim">
+        {% for result in results %}
+            <div class="search-result">
+                <a href="/books/{{ result.book }}/{{ result.chapter_nr }}?hls={{ result.verse_nr }}#anchor-{{ result.verse_nr }}">
+                    <em>{{ result.book }}. {{ result.chapter_nr }}:{{ result.verse_nr }}</em>
+                    <p>{{ result.verse }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

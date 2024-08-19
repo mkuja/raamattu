@@ -1,0 +1,21 @@
+<!-- vim: et ts=4 sw=4
+-->
+{% extends "base.jinja" %}
+            
+{% block title %}Kirjat{% endblock %}
+
+{% block body %}
+    <h1>Raamatun kirjat</h1>
+    <div id="rim">
+        <div id="books">
+            {% for book in books %}
+                <a class="book" href="/books/{{ book.short_name }}" style="color:{{book.book_color}}"> {{ book.long_name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="about">
+        <a href="/about">Tietoa tästä sivustosta..</a>
+    </div>
+{% endblock %}
+
+

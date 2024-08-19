@@ -1,0 +1,21 @@
+<!-- vim: et ts=4 sw=4
+-->
+<!doctype HTML>
+<html>
+    <head>
+        <title>Raamattu | {% block title %}{{ title }}{% endblock %}</title>
+        <link rel="stylesheet" href="/static/styles.css" />
+        <script src="/static/script.js" defer></script>
+    </head>
+    <body>
+        <div id="container">
+            <div>
+                <form id="search-form" method="GET" action="/search">
+                    <input type="text" name="search" placeholder="Jeesus elää" />
+                    <input type="submit" value="Hae">
+                </form>
+            </div>
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>

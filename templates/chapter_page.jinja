@@ -1,0 +1,52 @@
+<!-- vim: et ts=4 sw=4
+-->
+{% extends "base.jinja" %}
+
+           
+{% block title %}{{book_short_name}}, Luku {{chapter_nr}}{% endblock %}
+
+{% block body %}
+    <h1>{{ book_long_name }}</h1>
+    <div class="nav-container">
+        <div>
+            {% if chapter_nr > 1 %}
+                <span class="navigate-chapter"><a href="/books/{{book_short_name}}/{{chapter_nr-1}}">&lt;</a></span>
+            {% endif %}
+                <h2>Luku {{ chapter_nr }}</h2>
+            {% if chapter_nr < chapters_in_book %}
+                <span class="navigate-chapter"><a href="/books/{{book_short_name}}/{{chapter_nr+1}}">&gt;</a></span>
+            {% endif %}
+        </div>
+        <div>
+            <a class="navigate-to-chapters" href="/books/{{book_short_name}}">Luvun valintaan..</a>
+        </div>
+    </div>
+    <div id="rim">
+        <div id="chapter-container">
+            {% for (verse_n, verse) in verses %}
+                <a name="anchor-{{ verse_n }}" />
+                {% let hilight = hilights.contains(verse_n) %}
+                <p class="verse {% if hilight %}hilight{% endif %}">
+                <span class="verse-nr">{{verse_n}}</span>
+                {{verse}}
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="nav-container">
+        <div>
+            {% if chapter_nr > 1 %}
+                <span class="navigate-chapter"><a href="/books/{{book_short_name}}/{{chapter_nr-1}}">&lt;</a></span>
+            {% endif %}
+                <h2>Luku {{ chapter_nr }}</h2>
+            {% if chapter_nr < chapters_in_book %}
+                <span class="navigate-chapter"><a href="/books/{{book_short_name}}/{{chapter_nr+1}}">&gt;</a></span>
+            {% endif %}
+        </div>
+        <div>
+            <a class="navigate-to-chapters" href=/books/{{book_short_name}}>Luvun valintaan..</a>
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,83 @@
+<!-- vim: et ts=4 sw=4
+-->
+{% extends "base.jinja" %}
+           
+{% block title %}Tietoa sivustosta{% endblock %}
+
+{% block body %}
+    <h1>Lyhyesti tietoa sivustosta</h1>
+    <div class="nav-container-r">
+        <div>
+            <a class="navigate-to-front-page" href="/">Etusivulle..</a>
+        </div>
+    </div>
+    <div id="rim" class="about">
+        <p>Hei,</p>
+        <p>Tarkoitus on tehdä yksinkertainen ohjelma Raamatun lukemiseen.
+        Ilman mainoksia, maksuja, liitännäispalveluita ja ilman
+        rekistöitymistä. Sellainen, joka on helppo navigoida, ja toimii
+        käyttötarkoituksessaan.</p>
+
+        <p>Käännöksenä tällä hetkellä toimii Vanha kirkkoraamattu (KR33/38). Saatan
+        lisätä muitakin suomenkielisiä käännöksiä ohjelmaan. Jos sinulla on intoa
+        niin olet tervetullut mukaan lisäämään toiminnallisuutta tai
+        käännöksiä. Olen kuitenkin, että olen aika konservatiivinen uusien
+        ominaisuuksien suhteen. Voit kuitenkin aina kysyä, tai forkata oman.</p>
+
+        <p>Sivustoa ja siihen liittyvä ohjelmistoa saa käyttää ja levittää vapaasti.
+        Tarkemmin sanottuna, annan ohjelmiston käyttöösi MIT-lisenssiehtojen mukaisesti.
+        Alla tarkempi kuvaus lisenssiehdoista:</p>
+
+<pre>
+MIT License
+
+Copyright (c) 2024 Mikko Kujala
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and
+associated documentation files (the "Software"), to
+deal in the Software without restriction, including
+without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom
+the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+</pre>
+
+        <p>Tarkoitukseni on lisätä tähän GitHub-linkki. Jos kuitenkin unohdan sen niin
+        lisään sen kun jaksan.</p>
+        <p>Ohjelma on kirjoitettu Rustilla, ja sen tekemisessä on käytetty seuraavia
+        kirjastoja, ohjelmistoja ja fontteja:</p>
+        <li>
+            <ul><a href="https://crates.io/crates/axum">Axum</a>, <em>web framework</em></ul>
+            <ul><a href="https://tokio.rs/">Tokio</a>, <em>async runtime</em></ul>
+            <ul><a href="https://djc.github.io/askama/askama.html">Askama</a>, <em>templating moottori</em></ul>
+            <ul><a href="https://crates.io/crates/itertools">Itertools</a>, <em>mukavuusjuttu</em></ul>
+            <ul><a href="https://crates.io/crates/serde">Serde</a>, <em>tiedon (de-)serialisointi</em></ul>
+            <ul><a href="https://crates.io/crates/tower">Tower</a>, <em>verkkokirjasto</em></ul>
+            <ul><a href="https://crates.io/crates/sqlx">Sqlx</a>, <em>tietokanta-ajuri</em></ul>
+            <ul><a href="https://www.sqlite.org/">Sqlite</a>, <em>tietokanta</em></ul>
+            <ul><a href="https://alpinejs.dev/">Alpine.js</a>, <em>javascript kirjasto</em></ul>
+            <ul><a href="https://fonts.google.com/specimen/Roboto">Roboto</a>, <em>fontti</em></ul>
+            <ul><a href="https://fonts.google.com/specimen/Grey+Qo">GreyQo</a>, <em>fontti</em></ul>
+        </li>
+        
+        <p>Minuun saa yhteyden GitHubin kautta.</p>
+    </div>
+{% endblock %}
+
+
