@@ -24,9 +24,9 @@
     <div id="rim">
         <div id="chapter-container">
             {% for (verse_n, verse) in verses %}
-                <a name="anchor-{{ verse_n }}" />
                 {% let hilight = hilights.contains(verse_n) %}
                 <p class="verse {% if hilight %}hilight{% endif %}">
+                <a name="anchor-{{ verse_n }}"></a>
                 <span class="verse-nr">{{verse_n}}</span>
                 {{verse}}
                 </p>

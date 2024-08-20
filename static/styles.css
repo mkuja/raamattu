@@ -45,6 +45,9 @@ h2 {
     display: inline;
     text-decoration: none;
 }
+.navigate-chapter a {
+    text-decoration: none;
+}
 .navigate-to-chapters {
     text-align: center;
     font-family: handwriting;
@@ -59,10 +62,6 @@ h2 {
 .nav-container {
     display: flex;
     justify-content: space-between;
-}
-.nav-container-r {
-    display: flex;
-    justify-content: flex-end;
 }
 .navigate-to-front-page {
     text-align: center;
