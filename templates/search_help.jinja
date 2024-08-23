@@ -1,0 +1,62 @@
+<!-- vim: et ts=4 sw=4
+-->
+{% extends "base.jinja" %}
+           
+{% block title %}Hakuohje{% endblock %}
+
+{% block body %}
+    <h1>Hakuohje</h1>
+    <div id="rim" class="about">
+        <h2>Miksi tarvitaan hakuohje?</h2>
+        <p>Hakua voi käyttää intuitiivisesti kirjoittamalla termejä hakukenttään.
+        Mutta koska haussa on enemmänkin ominaisuuksia, kirjoitan tällaisen lyhyen
+        ohjeen sitä varten.</p>
+
+        <h2>Sanojen yhteensovitus</h2>
+        <p>Sanojen stemmaus (eng. stemming) tarkoittaa, että etsiessäsi vaikkapa sanaa
+        Jeesus, vastaa sana myös sen eri taivutuksia, ja mahdollisesti synonyymejä.
+        Raamattu.app käyttää hakukoneenaan Tantivyä, jossa on suomenkielinen sanojen
+        stemmaus käytössä.</p>
+
+        <h2>Operaattorit</h2>
+        <p>Hakemalla sanoja <span class="search-terms">Jeesus elää</span>, näkee
+        hakumoottori kaksi eri hakusanaa: <span class="search-terms">Jeesus</span>, sekä
+        <span class="search-terms">elää</span>. Oletuksena molempien termien pitää esiintyä
+        jakeessa. Tätä oletusta voi muuttaa käyttämällä avainsanaa <span class="search-terms">OR</span>:
+        <span class="search-terms">Jeesus OR elää</span> hakeekin jakeita joissa on
+        jompi kumpi tai molemmat termit. Myös AND-operaattori löytyy, ja se on
+        korkeammalla tärkeysjärjestyksessä kuin <span class="search-terms">OR</span>. Toisin sanoen
+        <span class="search-terms">a AND b OR c</span>, on sama haku kuin
+        <span class="search-terms">(a AND b) OR c</span></p>
+
+        <p>Kuten edellä tuli esimerkistä jo esille, sulkeilla voi määrätä operaattorien
+        vaikutusjärjestystä.</p>
+
+        <p>Lainaus- ja heittomerkeillä voi määritellä termiksi useamman sanan pituisen
+        tekstin. Esimerkiksi: <span class="search-terms">Jeesus sanoi</span>.</p>
+
+        <h2>Englanninkielinen täydellisempi ohje</h2>
+        <p>Täydellisen kuvauksen hakukielestä saat
+        <a href="https://docs.rs/tantivy/latest/tantivy/query/struct.QueryParser.html">täältä.</a>
+        </p>
+
+        <h2>Haun rajoittaiminen kirjaan tai lukuun</h2>
+        <p>Haussa on mahdollista rajoittaa hakua kirjan tai luvun perusteella. Esimerkiksi
+        haku <span class="search-terms">kirja:Matt jeesus sanoi</span> hakee termejä
+        <span class="search-terms">jeesus</span> ja <span class="search-terms">sanoi</span>
+        Matteuksen Evankeliumista. Huomaa, että kirjan nimi pitää olla tarkasti oikein
+        kirjainkokoa myöten. Itse hakutermit taas eivät välitä kirjainkoosta.</p>
+
+        <p>Luvun ja kirjan rajoittaminen tapahtuu seuraavasti: 
+        <span class="search-terms">kirja:Matt luku:1 hakutermit</span>
+        </p>
+
+        <h2>Kirjojen nimet listattuna</h2>
+        <ul>
+            {% for (short,long) in bible_books %}
+                <li>{{ short }}&nbsp;&nbsp;&nbsp; <em>{{ long }}</em></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

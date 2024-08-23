@@ -33,6 +33,13 @@ h2 {
     font-size: 3em;
     display: inline;
 }
+h3 {
+    text-align: center;
+    font-family: handwriting;
+    font-weight: 400;
+    font-size: 2.5em;
+    display: inline;
+}
 
 /* Navigation */
 .navigate-chapter {
@@ -170,11 +177,11 @@ h2 {
 }
 
 /* About link */
-#about {
+.about {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
-#about a {
+.about a {
     font-family: roboto;
     font-size: 16px;
     font-weight: lighter;
@@ -242,3 +249,9 @@ h2 {
 }
 
 
+/* Search-help page */
+.search-terms {
+    font-family: monospace;
+    font-weight: 200;
+    font-size: large;
+}

@@ -24,9 +24,9 @@ impl FrontPageContext {
     }
 }
 
-pub async fn front_page(State(pool): State<SqlitePool>)
+pub async fn front_page(State(pool): State<crate::ApplicationState>)
 -> Result<Html<String>, (StatusCode, String)> {
-    let mut conn = pool.acquire().await.expect("db connection error");
+    let mut conn = pool.pool.acquire().await.expect("db connection error");
     let books = FrontPageContext::new(&mut conn).await.unwrap();
     Ok(Html(books.render().unwrap()))
 }

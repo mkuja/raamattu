@@ -33,9 +33,9 @@ impl ChapterNumberPageContext {
     }
 }
 
-pub async fn chapter_numbers_page(State(pool): State<SqlitePool>, Path(p): Path<String>)
+pub async fn chapter_numbers_page(State(state): State<crate::ApplicationState>, Path(p): Path<String>)
 -> Result<Html<String>, (StatusCode, String)> {
-    let mut conn = pool.acquire().await.expect("db connection error");
+    let mut conn = state.pool.acquire().await.expect("db connection error");
     let long_name = query::get_book_long_name(&mut conn, &p).await.unwrap();
     let ch_nums = ChapterNumberPageContext::new(&mut conn, p.to_string(), long_name).await.unwrap();
     Ok(Html(ch_nums.render().unwrap()))

@@ -13,8 +13,8 @@
 - [ ] Optio jaenumeroiden piilottamiseksi.
 - [ ] Tuoda jotenkin selkeämmin esille, että hakutuloksia klikkaamalla pääsee kyseiseen
       raamatunkohtaan.
-- [ ] ~~Tutkia onko fts nopeampi, ja onko kannattavaa korvata nykyinen haku fts-haulla.~~
-- [ ] Toteuttaa monipuolinen hakutoiminto Tantivyllä.
+- [x] ~~Tutkia onko fts nopeampi, ja onko kannattavaa korvata nykyinen haku fts-haulla.~~
+- [x] Toteuttaa monipuolinen hakutoiminto Tantivyllä.
 - [x] Poistaa luvuista ylimääräiset, sinne kuulumattomat merkinnät.
 
 
