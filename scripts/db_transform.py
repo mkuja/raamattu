@@ -2,7 +2,7 @@ import pandas
 import sqlite3
 from itertools import zip_longest
 
-connection = sqlite3.connect("../FI'1938.SQLite3")
+connection = sqlite3.connect("./bible.db")
 
 books = pandas.read_sql_query("SELECT * FROM books", connection)
 verses = pandas.read_sql_query("SELECT * FROM verses", connection)
@@ -137,7 +137,7 @@ for line, book_num, chapter_num, verse_num in zip_longest(word_lists, book_nums,
 
 df = pandas.DataFrame(processed_words)
 print(df.iloc[20:40][["word", "ends_with_period", "ends_with_dquote"]])
-df.to_sql("words_", connection)
+#df.to_sql("new_words", connection)
 #print(verses["chapter"] == 1)
 
 
