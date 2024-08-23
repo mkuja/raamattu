@@ -64,11 +64,11 @@ pub struct HilightQuery {
 }
 
 pub async fn chapter_page(
-    State(pool): State<SqlitePool>,
+    State(state): State<crate::ApplicationState>,
     Path(p): Path<(String, u16)>,
     Query(q): Query<HilightQuery>,
 ) -> Result<Html<String>, (StatusCode, String)> {
-    let mut conn = pool.acquire().await.expect("db connection error");
+    let mut conn = state.pool.acquire().await.expect("db connection error");
     let chapter = ChapterPageContext::new_with_hilights(&mut conn, p.0, p.1, q.hls).await.unwrap();
     Ok(Html(chapter.render().unwrap()))
 }
