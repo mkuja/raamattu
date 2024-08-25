@@ -8,7 +8,7 @@
 - [ ] Prefixata taulujen nimet käännöksen nimellä.
 - [ ] Hakutulossivulle nappi etusivulle palaamiseen.
 - [x] Hakukentässä tulisi säilyä haetut hakutermit tulossivullakin.
-- [ ] Jakeita pitäisi pystyä maalaamaan, ja niistä tekemään linkki, jossa maalatut jakeet
+- [x] Jakeita pitäisi pystyä maalaamaan, ja niistä tekemään linkki, jossa maalatut jakeet
       avautuvat korostettuina.
 - [ ] Optio jaenumeroiden piilottamiseksi.
 - [ ] Tuoda jotenkin selkeämmin esille, että hakutuloksia klikkaamalla pääsee kyseiseen
