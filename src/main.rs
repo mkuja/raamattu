@@ -1,10 +1,10 @@
-#![feature(async_closure)]
 mod db;
 mod serve_static;
 mod templates;
 mod search;
 
 use axum::extract::State;
+use axum::http::StatusCode;
 use std::sync::Arc;
 use tantivy::{Index, IndexReader};
 use axum::{routing::get, Router, response::Html};
@@ -42,7 +42,7 @@ async fn main() -> Result<(), Error> {
     let app = Router::new()
         .route("/", get(templates::frontpage::front_page))
         .route("/search", get(search::search_route))
-        .route("/about", get(async || {Html(About{}.render().unwrap())}))
+        .route("/about", get(about))
         .route("/search-help", get(search_help))
         .route(
             "/books/:short_name",
@@ -64,6 +64,9 @@ async fn main() -> Result<(), Error> {
 #[derive(Template)]
 #[template(path="about.jinja")]
 struct About{}
+async fn about() -> Result<Html<String>, (StatusCode, String)> {
+    Ok(Html(About{}.render().unwrap()))
+}
 
 #[derive(Template, FromRow)]
 #[template(path="search_help.jinja")]
