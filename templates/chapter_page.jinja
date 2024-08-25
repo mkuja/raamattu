@@ -6,6 +6,19 @@
 {% block title %}{{book_short_name}}, Luku {{chapter_nr}}{% endblock %}
 
 {% block body %}
+
+    <!-- Context menu -->
+    <div id="context-menu">
+        <div>
+            Valikko
+        </div>
+        <ul>
+            <li id="copy-link">
+                Kopioi linkki korostettujen jakeiden linkki
+            </li>
+        </ul>
+    </div>
+
     <h1>{{ book_long_name }}</h1>
     <div class="nav-container">
         <div>
@@ -26,9 +39,9 @@
             {% for (verse_n, verse) in verses %}
                 {% let hilight = hilights.contains(verse_n) %}
                 <p class="verse {% if hilight %}hilight{% endif %}">
-                <a name="anchor-{{ verse_n }}"></a>
-                <span class="verse-nr">{{verse_n}}</span>
-                {{verse}}
+                    <a name="anchor-{{ verse_n }}"></a>
+                    <span class="verse-nr">{{verse_n}}</span>
+                    {{verse}}
                 </p>
             {% endfor %}
         </div>
