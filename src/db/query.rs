@@ -7,7 +7,7 @@ use sqlx::{SqliteConnection,
     FromRow,
 };
 use itertools::Itertools;
-
+use serde::Serialize;
 
 // {{{ Free text search
 /// Search by words in the query_str and return verses where all of the words appear.
@@ -57,7 +57,7 @@ pub async fn query_by_text_search(
 
 // }}}
 // {{{ Get list of books, their color codes and names.
-#[derive(FromRow)]
+#[derive(FromRow, Serialize)]
 #[allow(dead_code)]
 pub struct Book {
     pub book_color: String,

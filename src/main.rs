@@ -2,6 +2,11 @@ mod db;
 mod serve_static;
 mod templates;
 mod search;
+mod api;
+mod application_state;
+mod sitemap;
+
+
 
 use axum::extract::State;
 use axum::http::StatusCode;
@@ -10,13 +15,9 @@ use tantivy::{Index, IndexReader};
 use axum::{routing::get, Router, response::Html};
 use sqlx::{sqlite::SqliteConnectOptions, FromRow, Error, SqlitePool};
 use askama::Template;
-
-#[derive(Clone)]
-pub struct ApplicationState {
-    pub pool: SqlitePool,
-    pub index: Arc<Index>,
-    pub reader: Arc<IndexReader>,
-}
+use tower_http::follow_redirect::policy::PolicyExt;
+use application_state::ApplicationState;
+use crate::sitemap::generate_sitemap;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -32,6 +33,9 @@ async fn main() -> Result<(), Error> {
     let (index, reader) = search::build_index(&mut conn)
         .await
         .expect("could not build search index");
+
+    generate_sitemap(&mut conn).await;
+    drop(conn);
 
     let mut app_state = ApplicationState {
         pool,
@@ -52,6 +56,9 @@ async fn main() -> Result<(), Error> {
             "/books/:short_name/:chapter_num",
             get(templates::chapter_page::chapter_page),
         )
+        .route("/api/v1/enumerate_books", get(api::Book::enumerate_books))
+        .route("/api/v1/:book/num_chapters", get(get(api::Book::num_chapters)))
+        .route("/api/v1/:book/:chapter", get(api::Book::chapter))
         .with_state(app_state)
         .nest_service("/static", serve_static::serve_static::serve_static());
 

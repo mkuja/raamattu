@@ -1,4 +1,4 @@
-FROM rust:1.80-bookworm AS build
+FROM rust:1.81-bookworm AS build
 WORKDIR build
 COPY . .
 RUN cargo build --release
@@ -9,6 +9,6 @@ COPY --from=build /build/target/release/raamattu .
 COPY --from=build /build/db db
 COPY --from=build /build/static static
 EXPOSE 3000
-CMD ./raamattu
+CMD /app/raamattu
 
 # vim: et ts=4 sw=4

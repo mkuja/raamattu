@@ -9,7 +9,7 @@ use askama::Template;
 use sqlx::SqliteConnection;
 use std::sync::Arc;
 use tantivy::collector::TopDocs;
-use tantivy::TantivyDocument;
+use tantivy::{Searcher, TantivyDocument};
 use tantivy::query::QueryParser;
 use tantivy::schema::*;
 use tantivy::{doc, Index, IndexReader, IndexWriter, ReloadPolicy};
@@ -113,15 +113,11 @@ pub async fn build_index(
     Ok((Arc::new(index), Arc::new(reader)))
 }
 
-
 pub async fn search_route(
     extract::State(state): extract::State<crate::ApplicationState>,
     search_query: extract::Query<SearchQuery>,
 ) -> Result<Html<String>, (StatusCode, String)> {
     let t1 = Instant::now();
-    let _book_name = state.index.schema().get_field("kirja").unwrap();
-    let _chapter = state.index.schema().get_field("luku").unwrap();
-    let _verse_ = state.index.schema().get_field("jae").unwrap();
     let text_field = state.index.schema().get_field("teksti").unwrap();
 
     let searcher = state.reader.searcher();
